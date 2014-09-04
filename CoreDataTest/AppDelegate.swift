@@ -16,11 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
-        // Override point for customization after application launch.
-//        NSLog("%@", Workouts.entityName())
+
         println("*******************************")
-        NSLog("workouts: %@", Workout.all().count)
-        Workout.create(["title": "something"])
+        NSLog("workouts: %@", Workout.all())
+        var workout = Workout.create(["title": "something"]) as Workout
+        workout.save()
+        NSLog("workouts: %@", Workout.all())
+        println(Workout.all().count)
         return true
     }
 
